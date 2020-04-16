@@ -16,7 +16,7 @@ class MediaSocialController extends Controller
 
     public function index(){
         return $this->user->mediasocials()->get([
-            'media_social','username'
+            'id','user_id','media_social','username'
         ])->toArray();
     }
 
