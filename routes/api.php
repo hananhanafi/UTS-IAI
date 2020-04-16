@@ -26,9 +26,9 @@ Route::group(['middleware' => 'auth.jwt'],function(){
  
     Route::get('user', 'ApiController@getAuthUser');
  
-    Route::get('user/mediasocial', 'MediaSocialController@index');
-    Route::get('user/mediasocial/{id}', 'MediaSocialController@show');
-    Route::post('user/mediasocial', 'MediaSocialController@store');
-    Route::put('user/mediasocial/{id}', 'MediaSocialController@update');
-    Route::delete('user/mediasocial/{id}', 'MediaSocialController@destroy');
+    Route::get('mediasocial', 'MediaSocialController@index');
+    Route::get('mediasocial/{id}', 'MediaSocialController@show');
+    Route::post('mediasocial', 'MediaSocialController@store');
+    Route::put('mediasocial/{id}', 'MediaSocialController@update');
+    Route::delete('mediasocial/{id}', 'MediaSocialController@destroy');
 });

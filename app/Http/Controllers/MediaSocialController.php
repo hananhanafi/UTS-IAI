@@ -69,7 +69,7 @@ class MediaSocialController extends Controller
 
         $updated = $mediaSocial->fill($request->all())->Save();
 
-        if(updated){
+        if($updated){
             return response()->json([
                 'success'=>true
             ]);
@@ -81,7 +81,7 @@ class MediaSocialController extends Controller
         }
     }
 
-    public function destrou($id){
+    public function destroy($id){
         $mediaSocial = $this->user->mediasocials->find($id);
 
         if(!$mediaSocial){
