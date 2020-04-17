@@ -93,6 +93,7 @@ class ApiController extends Controller
         if($updated){
             return response()->json([
                 'success'=>true,
+                'user' => $user,
                 'message' => 'User updated successfully'
             ]);
         }else{
