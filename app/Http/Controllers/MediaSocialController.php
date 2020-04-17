@@ -71,7 +71,8 @@ class MediaSocialController extends Controller
 
         if($updated){
             return response()->json([
-                'success'=>true
+                'success'=>true,
+                'message' => 'Media Social updated successfully'
             ]);
         }else{
             return response()->json([
@@ -93,7 +94,7 @@ class MediaSocialController extends Controller
         if($mediaSocial->delete()){
             return response()->json([
                 'success' => true,
-                'message' => 'Media social has been deleted'
+                'message' => 'Media social deleted successfully'
             ]);
         }else{
             return response()->json([

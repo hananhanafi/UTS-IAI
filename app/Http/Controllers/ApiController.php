@@ -10,7 +10,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class ApiController extends Controller
 {
-    public $loginAfterSignUp = true;
+    // public $loginAfterSignUp = true;
 
     public function register(RegisterAuthRequest $request){
         $user = new User;
@@ -19,13 +19,14 @@ class ApiController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        if($this->loginAfterSignUp){
-            return $this->login($request);
-        }
+        // if($this->loginAfterSignUp){
+        //     return $this->login($request);
+        // }
 
         return response()->json([
             'success' => true,
-            'data' => $user
+            'data' => $user,
+            'message' => 'User register succesfully'
         ],200);
 
     }
@@ -43,6 +44,7 @@ class ApiController extends Controller
         return response()->json([
             'success' => true,
             'token' => $jwt_token,
+            'message' => 'User logged in successfully'
         ]);
     }
 
@@ -91,12 +93,12 @@ class ApiController extends Controller
         if($updated){
             return response()->json([
                 'success'=>true,
-                'user' => $user,
+                'message' => 'User updated successfully'
             ]);
         }else{
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry, media social could not be updated'
+                'message' => 'Sorry, user could not be updated'
             ],500);
         }
     }
